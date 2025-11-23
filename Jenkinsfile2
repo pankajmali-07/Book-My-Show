@@ -76,10 +76,10 @@ pipeline {
                     withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
                         sh ''' 
                         echo "Building Docker image..."
-                        docker build --no-cache -t $DOCKER_IMAGE -f bookmyshow-app/Dockerfile bookmyshow-app
+                        docker build --no-cache -t BMS -f bookmyshow-app/Dockerfile bookmyshow-app
 
                         echo "Pushing Docker image to Docker Hub..."
-                        docker push $DOCKER_IMAGE
+                        docker push BMS
                         '''
                     }
                 }
@@ -94,7 +94,7 @@ pipeline {
                     aws sts get-caller-identity
 
                     echo "Configuring kubectl for EKS cluster..."
-                    aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+                    aws eks update-kubeconfig --name bookmyshow-eks --region us-east-1
 
                     echo "Verifying kubeconfig..."
                     kubectl config view
