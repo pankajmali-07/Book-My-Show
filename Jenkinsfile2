@@ -92,6 +92,7 @@ pipeline {
                 script {
                     sh '''
                     echo "Verifying AWS credentials..."
+                    aws login
                     aws sts get-caller-identity
 
                     echo "Configuring kubectl for EKS cluster..."
