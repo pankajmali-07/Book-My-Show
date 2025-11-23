@@ -9,7 +9,7 @@ pipeline {
                 
         stage ("Git Checkout") {
             steps {
-                git 'https://github.com/pankajmali-07/Book-My-Show.git'
+                git branch: 'main', url: 'https://github.com/pankajmali-07/Book-My-Show.git'
             }
         }
        stage ("Build Docker Image") {
