@@ -80,11 +80,11 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker') {
                         sh ''' 
-                        echo "Building Docker image..."
-                        docker build --no-cache -t BMS -f bookmyshow-app/Dockerfile bookmyshow-app
+                    /*    echo "Building Docker image..."
+                        docker build --no-cache -t BMS -f bookmyshow-app/Dockerfile bookmyshow-app   */
 
                         echo "Pushing Docker image to Docker Hub..."
-                        docker push BMS
+                        docker push pankaj0791/bms
                         '''
                     }
                 }
