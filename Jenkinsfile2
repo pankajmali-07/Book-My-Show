@@ -75,14 +75,14 @@ pipeline {
             sh 'docker build --no-cache -t bms -f bookmyshow-app/Dockerfile bookmyshow-app'
         }
         }
-        stage('Docker Build & Push') {
+        stage('Docker Hub Push Image') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker') {
                         sh ''' 
                     /*    echo "Building Docker image..."
                         docker build --no-cache -t BMS -f bookmyshow-app/Dockerfile bookmyshow-app   */
-
+                        sh docker login -u pankaj0791 -p ${docker-creds}
                         echo "Pushing Docker image to Docker Hub..."
                         docker push pankaj0791/bms
                         '''
