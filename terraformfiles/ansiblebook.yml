@@ -13,4 +13,4 @@
     command : sudo systemctl start docker
 
   - name: Deploy Docker Container
-    command: docker run -d --name Book-My-Show -p 3000:3000 pankaj0791/book-my-show:1.0
+    command: docker run -d --name book-my-show -p 3000:3000 pankaj0791/book-my-show:1.0
